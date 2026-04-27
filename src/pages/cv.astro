@@ -61,7 +61,37 @@ const roles: Role[] = [
   },
 ];
 
-const skills = 'Engineering Strategy, Technical Roadmap Planning, OKR Planning, Org Design, Headcount Planning, Hiring & Talent Management, Performance Management, Career Development & Mentorship, Stakeholder Management, Cross-Functional Alignment, Agile / Scrum, Program Delivery, JavaScript, TypeScript, React, React Native, Node.js, Golang, Microservices, Distributed Systems, AWS, Docker, Kubernetes';
+interface SkillGroup {
+  category: string;
+  items: string;
+}
+
+const skills: SkillGroup[] = [
+  {
+    category: 'Web & Mobile',
+    items: 'JavaScript, TypeScript, React, React Native, Angular, Hybrid Mobile Apps, PWA & Offline-First Architecture, Rendering Strategies (SSR, CSR, SSG), Core Web Vitals, Web Performance, Micro-Frontend Architecture, Frontend Build Tooling & Bundlers, Component Libraries',
+  },
+  {
+    category: 'Backend',
+    items: 'Node.js, Golang, Microservices, Distributed Systems, API Design Patterns (REST API, API Gateway, BFF), CDN, Caching Strategy, High-Scale Platforms, Service Reliability Patterns, AWS, Container Orchestration (Docker, Kubernetes), ElasticSearch, RDBMS (MySQL, PostgreSQL), NoSQL (MongoDB, Redis, Aerospike)',
+  },
+  {
+    category: 'Observability & Reliability',
+    items: 'Grafana, Prometheus, Firebase Performance, SLOs / SLAs, Incident Management, On-Call Practices, RCA & Post-Mortems, Alerting & Monitoring Pipelines, Circuit Breakers, Rate Limiting',
+  },
+  {
+    category: 'AI & Emerging',
+    items: 'Generative AI, AI-Assisted Developer Tooling, LLM Integration',
+  },
+  {
+    category: 'Domain Expertise',
+    items: 'E-commerce, Payments, Travel, Marketplace Platforms, High-Scale Consumer Internet, B2C',
+  },
+  {
+    category: 'Engineering Leadership',
+    items: 'Engineering Strategy, Technical Roadmap Planning, OKR Planning, Org Design, Headcount Planning, Hiring & Talent Management, Performance Management, Career Development & Mentorship, Stakeholder Management, Cross-Functional Alignment, Agile / Scrum, Program Delivery, People Management, 1:1 Coaching, Performance Reviews, Promotions, Feedback Culture',
+  },
+];
 ---
 
 <BaseLayout
@@ -110,7 +140,11 @@ const skills = 'Engineering Strategy, Technical Roadmap Planning, OKR Planning, 
 
     <section>
       <h2>Skills</h2>
-      <p>{skills}</p>
+      {skills.map((group) => (
+        <p class="skill-group">
+          <strong>{group.category}:</strong> {group.items}
+        </p>
+      ))}
     </section>
 
     <section>

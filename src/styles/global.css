@@ -466,6 +466,10 @@ th, td {
 .cv .role-head .meta { color: var(--muted); font-size: 0.95rem; }
 .cv ul { margin: 0.3rem 0 0.5rem; }
 
+.cv .skill-group { margin: 0 0 0.4rem; line-height: 1.5; }
+.cv .skill-group:last-child { margin-bottom: 0; }
+.cv .skill-group strong { font-weight: 600; }
+
 /* Print */
 @media print {
   :root {
@@ -505,6 +509,7 @@ th, td {
   .cv li + li { margin-top: 0.02em; }
   .cv .contact-line { margin-bottom: 0.2em; }
   .cv section { margin-top: 0.5rem; }
+  .cv .skill-group { margin: 0 0 0.2em; line-height: 1.35; }
   p, li { orphans: 3; widows: 3; }
   .cv .role { break-inside: avoid; }
 }
