@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+const readingTime = (body: string) => {
+  const words = body.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 220));
+};
+---
+
+<BaseLayout title="Writing" description="Notes on engineering management and software.">
+  <h1>Writing</h1>
+  <p class="lede">Occasional notes on engineering management and the work itself.</p>
+
+  {posts.length === 0 ? (
+    <p class="muted">No posts yet.</p>
+  ) : (
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          <span class="meta">
+            {fmt(post.data.pubDate)} · {readingTime(post.body)} min read
+          </span>
+        </li>
+      ))}
+    </ul>
+  )}
+</BaseLayout>

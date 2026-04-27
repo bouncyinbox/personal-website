@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const words = post.body.trim().split(/\s+/).length;
+const minutes = Math.max(1, Math.round(words / 220));
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  type="article"
+  publishedTime={post.data.pubDate}
+  updatedTime={post.data.updatedDate}
+>
+  <article>
+    <h1>{post.data.title}</h1>
+    <p class="post-meta">
+      {fmt(post.data.pubDate)} · {minutes} min read
+      {post.data.updatedDate && (
+        <> · Updated {fmt(post.data.updatedDate)}</>
+      )}
+    </p>
+
+    <Content />
+
+    {/*
+      Comments integration point.
+      TODO: drop in Giscus (or similar) here when desired — no backend required.
+      Example:
+        import Comments from '../../components/Comments.astro';
+        <Comments />
+    */}
+  </article>
+
+  <p style="margin-top: 2rem;"><a href="/blog">← All posts</a></p>
+</BaseLayout>

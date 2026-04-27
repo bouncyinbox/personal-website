@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+
+interface Role {
+  company: string;
+  title: string;
+  dates: string;
+  location: string;
+  bullets: string[];
+}
+
+const roles: Role[] = [
+  {
+    company: 'Nielsen',
+    title: 'Senior Engineering Manager',
+    dates: 'Jun 2025 – Feb 2026',
+    location: 'Bangalore, India',
+    bullets: [
+      'Took over a 32-member cross-functional engineering team across South Korea, US, and India (4 cities) — previously led by a Director of Engineering for 7+ years.',
+      'Stabilized the team through a leadership transition — introduced structured planning, clarified ownership boundaries, and established cross-functional engagement models. Hired 3 engineers during this period.',
+      'Reorganized the team to align with the Digital & AI vertical — mapped 6 apps and 4 services, transitioned 3 apps and 5 engineers to appropriate verticals.',
+      'Identified a Sev-1 data quality issue on the iOS metering app undetected for 15 months — impacting 2 out of 20 core signals across nearly 100% of global clients. Drove root cause analysis and coordinated the fix across multiple teams.',
+      'Drove adoption of AI-assisted developer tooling across teams, personally shipped an enhancement in crawler using LLM integrated runtime loops (a self-healing crawler).',
+    ],
+  },
+  {
+    company: 'Myntra',
+    title: 'Senior Engineering Manager',
+    dates: 'Apr 2022 – Jun 2025',
+    location: 'Bangalore, India',
+    bullets: [
+      'Led an 18-member full-stack engineering org within the Discovery domain, owning high-traffic customer-facing surfaces: PDP, Size&Fit, UGC, Growth (3D, Virtual TryOn, FWD, Hyperlocal, AI Looks), Recommendations, Search Experience.',
+      'Drove PDP migration to the Layout Engine framework — reduced TTFD by ~50% (5.1s → 2.5s), significantly improving scalability and release velocity.',
+      'Scaled and optimized backend services handling 2M+ TPS, achieved ~30% infrastructure cost savings through systematic benchmarking, right-sizing, and autoscaling strategies.',
+      'Established robust performance and reliability practices (Firebase metrics, profiling, on-call rotations, RCA culture), resulting in ~70% reduction in production incidents.',
+      'Partnered cross-functionally with Product, UX, TPM, and Platform teams to deliver complex, high-impact features on time.',
+    ],
+  },
+  {
+    company: 'Snapdeal',
+    title: 'Engineering Manager (SE II → SSE → Tech Lead → EM)',
+    dates: 'Aug 2014 – Mar 2022',
+    location: 'New Delhi, India',
+    bullets: [
+      'During Snapdeal 2.0 restructuring (80% org-wide workforce reduction), stepped up as one of few senior engineers retained; rebuilt the buyer engineering team from scratch.',
+      'Owned end-to-end Buyer Experience engineering across Discovery, Post-Order, and Payments domains — led development of Cart, Checkout, Payments, PWA, and real-time monitoring systems.',
+      'Drove frontend modernization initiatives, improving performance, reliability, and developer productivity across web platforms.',
+    ],
+  },
+  {
+    company: 'RedBus / Adjetter',
+    title: 'Software Engineer',
+    dates: 'Sep 2012 – Jul 2014',
+    location: 'Bangalore, India',
+    bullets: [
+      'Built consumer-facing web and mobile web applications including search result pages, payment flows, and hotel booking platforms from the ground up.',
+      'Developed reusable UI libraries in JavaScript; led end-to-end development of an e-commerce platform and a CMS web app.',
+      'Built and launched the Hotels vertical for RedBus, expanding the platform\'s service offerings.',
+    ],
+  },
+];
+
+const skills = 'Engineering Strategy, Technical Roadmap Planning, OKR Planning, Org Design, Headcount Planning, Hiring & Talent Management, Performance Management, Career Development & Mentorship, Stakeholder Management, Cross-Functional Alignment, Agile / Scrum, Program Delivery, JavaScript, TypeScript, React, React Native, Node.js, Golang, Microservices, Distributed Systems, AWS, Docker, Kubernetes';
+---
+
+<BaseLayout
+  title="CV"
+  description={`CV — ${SITE.author}, Senior Engineering Manager`}
+  bodyClass="cv-body"
+>
+  <div class="cv">
+    <div class="cv-actions">
+      <button type="button" id="print-cv">Print / Save as PDF</button>
+    </div>
+
+    <h1>Amit Kumar</h1>
+    <p class="contact-line">
+      Senior Engineering Manager · Bangalore, India
+      <br />
+      bouncyinbox@gmail.com ·
+      <a href={SITE.linkedin}>{SITE.linkedin.replace('https://', '')}</a> ·
+      <a href={SITE.github}>{SITE.github.replace('https://', '')}</a>
+    </p>
+
+    <section>
+      <h2>Summary</h2>
+      <p>
+        Senior Engineering Manager with 13+ years of experience building and scaling engineering
+        organizations across web, mobile, and backend platforms. Hands-on technical depth in frontend,
+        mobile platforms, and high-scale microservices, with a consistent focus on platform reliability,
+        developer productivity, and delivery execution at scale.
+      </p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      {roles.map((role) => (
+        <div class="role">
+          <div class="role-head">
+            <h3>{role.title} · {role.company}</h3>
+            <span class="meta">{role.dates} · {role.location}</span>
+          </div>
+          <ul>
+            {role.bullets.map((b) => <li>{b}</li>)}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <p>{skills}</p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="role">
+        <div class="role-head">
+          <h3>Bachelor of Technology, Information Technology · Poornima College of Engineering, Jaipur</h3>
+          <span class="meta">Aug 2008 – Jun 2012</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var btn = document.getElementById('print-cv');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      window.print();
+    });
+  })();
+</script>

@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+---
+
+<BaseLayout
+  title={undefined}
+  description={`Personal site of ${SITE.author}, Senior Engineering Manager.`}
+>
+  <h1>Amit Kumar</h1>
+  <p class="lede">
+    Senior Engineering Manager · 13+ years building software and the teams that ship it.
+  </p>
+
+  <p>
+    I build and scale engineering organizations across web, mobile, and backend platforms.
+    Hands-on technical depth in frontend, mobile platforms, and high-scale microservices,
+    with a consistent focus on platform reliability, developer productivity, and delivery
+    execution at scale. I've worked across e-commerce, payments, travel, and marketplace
+    platforms at companies like Nielsen, Myntra, Snapdeal, and RedBus.
+  </p>
+
+  <p>
+    As a manager, I optimize for team autonomy, delivery predictability, and engineering
+    excellence. I believe in structured planning, clear ownership boundaries, and building
+    a strong culture of performance, reliability, and cross-functional collaboration.
+  </p>
+
+  <h2>Elsewhere on this site</h2>
+  <ul>
+    <li><a href="/experience">Experience</a> — roles, scope, and outcomes.</li>
+    <li><a href="/projects">Projects</a> — selected case studies.</li>
+    <li><a href="/blog">Writing</a> — notes on engineering management.</li>
+    <li><a href="/now">Now</a> — what I'm focused on this quarter.</li>
+    <li><a href="/reading">Reading</a> — books, by year.</li>
+    <li><a href="/uses">Uses</a> — tools and setup.</li>
+    <li><a href="/cv">CV</a> — printable one-pager.</li>
+  </ul>
+</BaseLayout>

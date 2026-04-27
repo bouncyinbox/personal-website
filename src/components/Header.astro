@@ -1,0 +1,37 @@
+---
+import { SITE } from '../config';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) => {
+  const normalized = href.replace(/\/$/, '') || '/';
+  if (normalized === '/') return path === '/';
+  return path === normalized || path.startsWith(`${normalized}/`);
+};
+
+const links = [
+  { href: '/', label: 'About' },
+  { href: '/experience', label: 'Experience' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/blog', label: 'Writing' },
+  { href: '/now', label: 'Now' },
+  { href: '/reading', label: 'Reading' },
+  { href: '/uses', label: 'Uses' },
+  { href: '/cv', label: 'CV' },
+];
+---
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/">{SITE.title}</a>
+    <nav class="site-nav" aria-label="Primary">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          aria-current={isCurrent(link.href) ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

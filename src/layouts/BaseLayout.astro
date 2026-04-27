@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+import { PLAUSIBLE_DOMAIN, PLAUSIBLE_ENABLED } from '../config';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  type?: 'website' | 'article';
+  publishedTime?: Date;
+  updatedTime?: Date;
+  bodyClass?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage,
+  type,
+  publishedTime,
+  updatedTime,
+  bodyClass,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <SEO
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      type={type}
+      publishedTime={publishedTime}
+      updatedTime={updatedTime}
+    />
+    {PLAUSIBLE_ENABLED && (
+      <script
+        is:inline
+        defer
+        data-domain={PLAUSIBLE_DOMAIN}
+        src="https://plausible.io/js/script.js"
+      />
+    )}
+  </head>
+  <body class={bodyClass}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site">
+      <Header />
+      <main id="main">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

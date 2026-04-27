@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Project {
+  title: string;
+  summary: string;
+  role: string;
+  outcome: string;
+  link?: { href: string; label: string };
+}
+
+const projects: Project[] = [
+  {
+    title: 'PDP Layout Engine Migration',
+    summary: 'Migrated Myntra\'s highest-traffic Product Detail Page to the Layout Engine framework.',
+    role: 'Engineering lead, Senior Engineering Manager',
+    outcome: 'Reduced TTFD by ~50% (5.1s → 2.5s), significantly improving scalability and release velocity.',
+  },
+  {
+    title: 'Backend Services Optimization at Scale',
+    summary: 'Systematic benchmarking, right-sizing, and autoscaling of backend services handling 2M+ TPS at Myntra.',
+    role: 'Senior Engineering Manager',
+    outcome: '~30% infrastructure cost savings while maintaining reliability.',
+  },
+  {
+    title: 'Self-Healing Crawler with LLM',
+    summary: 'Built an enhancement in Nielsen\'s crawler using LLM integrated runtime loops for self-healing capabilities.',
+    role: 'Hands-on engineering, Senior Engineering Manager',
+    outcome: 'Drove adoption of AI-assisted developer tooling across teams.',
+  },
+  {
+    title: 'Sev-1 Data Quality Fix (Nielsen iOS Metering)',
+    summary: 'Identified and resolved a critical data quality issue on the iOS metering app that had gone undetected for 15 months.',
+    role: 'Senior Engineering Manager, root cause analysis lead',
+    outcome: 'Fixed 2 out of 20 core signals (UserAgent and Classification data) impacting nearly 100% of global clients.',
+  },
+  {
+    title: 'Snapdeal Buyer Experience Rebuild',
+    summary: 'During Snapdeal 2.0 restructuring (80% workforce reduction), rebuilt the buyer engineering team and owned end-to-end buyer experience.',
+    role: 'Engineering Manager (grew from SE II → EM)',
+    outcome: 'Maintained delivery continuity; owned Cart, Checkout, Payments, PWA, and real-time monitoring systems.',
+  },
+  {
+    title: 'RedBus Hotels Vertical',
+    summary: 'Built and launched the Hotels vertical for RedBus from the ground up.',
+    role: 'Software Engineer',
+    outcome: 'Expanded RedBus\'s platform from bus ticketing into hotel bookings.',
+  },
+];
+---
+
+<BaseLayout
+  title="Projects"
+  description="Selected projects and case studies."
+>
+  <h1>Projects</h1>
+  <p class="lede">A short, curated list. Not exhaustive.</p>
+
+  <ul class="entries">
+    {projects.map((p) => (
+      <li class="entry">
+        <div class="entry-head">
+          <h3>{p.title}</h3>
+        </div>
+        <p>{p.summary}</p>
+        <p class="muted">
+          <strong>Role:</strong> {p.role} · <strong>Outcome:</strong> {p.outcome}
+          {p.link && <> · <a href={p.link.href}>{p.link.label}</a></>}
+        </p>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

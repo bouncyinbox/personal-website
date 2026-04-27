@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Update this date when you edit the page.
+const lastUpdated = new Date('2026-04-27');
+const lastUpdatedDisplay = isNaN(lastUpdated.getTime())
+  ? '[PLACEHOLDER: 2026-01-15]'
+  : lastUpdated.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+---
+
+<BaseLayout
+  title="Now"
+  description="What I'm currently focused on."
+>
+  <h1>Now</h1>
+  <p class="post-meta">Last updated {lastUpdatedDisplay}</p>
+
+  <p>
+    [PLACEHOLDER: 1–2 sentences naming the team, charter, or initiative you're heads-down on right now.]
+  </p>
+
+  <h2>Work</h2>
+  <ul>
+    <li>[PLACEHOLDER: current top priority]</li>
+    <li>[PLACEHOLDER: secondary focus]</li>
+    <li>[PLACEHOLDER: hiring / team-shape changes if any]</li>
+  </ul>
+
+  <h2>Learning</h2>
+  <ul>
+    <li>[PLACEHOLDER: book, paper, or topic]</li>
+    <li>[PLACEHOLDER: skill or domain you're sharpening]</li>
+  </ul>
+
+  <h2>Outside work</h2>
+  <ul>
+    <li>[PLACEHOLDER: optional — a hobby, family thing, or side interest]</li>
+  </ul>
+
+  <p class="muted">
+    Inspired by Derek Sivers' <a href="https://nownownow.com/about">/now page movement</a>.
+  </p>
+</BaseLayout>

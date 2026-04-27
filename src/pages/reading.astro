@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Book {
+  title: string;
+  author: string;
+  take?: string;
+}
+
+const reading: Record<string, Book[]> = {
+  '[PLACEHOLDER: 2026]': [
+    { title: '[PLACEHOLDER: Book Title]', author: '[PLACEHOLDER: Author]', take: '[PLACEHOLDER: optional 1-line take]' },
+    { title: '[PLACEHOLDER: Book Title]', author: '[PLACEHOLDER: Author]' },
+  ],
+  '[PLACEHOLDER: 2025]': [
+    { title: '[PLACEHOLDER: Book Title]', author: '[PLACEHOLDER: Author]', take: '[PLACEHOLDER: optional 1-line take]' },
+    { title: '[PLACEHOLDER: Book Title]', author: '[PLACEHOLDER: Author]' },
+    { title: '[PLACEHOLDER: Book Title]', author: '[PLACEHOLDER: Author]' },
+  ],
+  '[PLACEHOLDER: 2024]': [
+    { title: '[PLACEHOLDER: Book Title]', author: '[PLACEHOLDER: Author]' },
+    { title: '[PLACEHOLDER: Book Title]', author: '[PLACEHOLDER: Author]' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Reading"
+  description="Books, by year, with the occasional take."
+>
+  <h1>Reading</h1>
+  <p class="lede">Books I've finished, grouped by year.</p>
+
+  {Object.entries(reading).map(([year, books]) => (
+    <section class="reading-year">
+      <h2>{year}</h2>
+      <ul>
+        {books.map((b) => (
+          <li>
+            <em>{b.title}</em> — {b.author}
+            {b.take && <> · <span class="muted">{b.take}</span></>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</BaseLayout>
