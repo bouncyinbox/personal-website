@@ -1,6 +1,7 @@
 /* Theme tokens — auto light/dark via prefers-color-scheme. */
 :root {
   --line-height: 1.6;
+  --max-width: 80ch;
   --font-sans:
     ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -57,7 +58,7 @@ body {
 }
 
 main {
-  padding: 1.5rem 10% 4rem;
+  padding: 1.5rem 15% 4rem;
 }
 
 /* Layout */
@@ -77,7 +78,7 @@ main {
 }
 
 .site-header-inner {
-  padding: 1rem 10%;
+  padding: 1rem 15%;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -116,7 +117,7 @@ main {
 }
 
 .site-footer-inner {
-  padding: 1.25rem 10% 2rem;
+  padding: 1.25rem 15% 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.25rem;
@@ -295,6 +296,28 @@ th, td {
 .entry .dates { color: var(--muted); font-size: 0.95rem; }
 .entry .scope { color: var(--muted); font-size: 0.95rem; margin: 0 0 0.5rem; }
 
+.entry-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.entry-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .entry-logo {
+    background: #ffffff;
+    padding: 4px;
+  }
+}
+
 .post-list {
   list-style: none;
   padding: 0;
@@ -338,7 +361,7 @@ th, td {
   cursor: pointer;
 }
 
-.cv { max-width: 210mm; margin: 0 auto; }
+/* .cv { max-width: 210mm; margin: 0 auto; } */
 .cv h1 { margin-top: 0; }
 
 .cv .contact-line {
