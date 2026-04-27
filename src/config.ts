@@ -12,7 +12,7 @@ export const SITE = {
   emailUser: 'bouncyinbox',
   emailDomain: 'gmail.com',
   linkedin: 'https://www.linkedin.com/in/amitk0mar',
-  github: 'https://github.com/amitk0mar',
+  github: 'https://github.com/bouncyinbox',
   // Pick X / Bluesky / Mastodon later; leave generic.
   socialLabel: 'LinkedIn',
   socialUrl: 'https://www.linkedin.com/in/amitk0mar',

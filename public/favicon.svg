@@ -1,6 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#1a56db"/>
-  <text x="16" y="22" text-anchor="middle"
-        font-family="ui-serif, Georgia, serif" font-size="20"
-        font-weight="600" fill="#ffffff">N</text>
+  <text x="16" y="26" text-anchor="middle" font-size="28">🚀</text>
 </svg>

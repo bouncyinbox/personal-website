@@ -57,7 +57,7 @@ body {
 }
 
 main {
-  padding: 1.5rem 5% 4rem;
+  padding: 1.5rem 10% 4rem;
 }
 
 /* Layout */
@@ -77,7 +77,7 @@ main {
 }
 
 .site-header-inner {
-  padding: 1rem 5%;
+  padding: 1rem 10%;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -116,13 +116,15 @@ main {
 }
 
 .site-footer-inner {
-  padding: 1.25rem 5% 2rem;
+  padding: 1.25rem 10% 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.25rem;
   justify-content: space-between;
   align-items: baseline;
 }
+
+.site-footer p { margin: 0; }
 
 .site-footer ul {
   display: flex;
@@ -131,7 +133,10 @@ main {
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: baseline;
 }
+
+.site-footer li + li { margin-top: 0; }
 
 /* Skip link */
 .skip-link {
@@ -229,6 +234,30 @@ th, td {
   text-align: left;
   padding: 0.4em 0.6em;
   border-bottom: 1px solid var(--rule);
+}
+
+/* Hero / profile */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 { margin: 0; }
+.hero .lede { margin-top: 0.25rem; }
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .hero { flex-direction: column; text-align: center; }
+  .profile-photo { width: 100px; height: 100px; }
 }
 
 /* Page-level helpers */
