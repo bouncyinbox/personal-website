@@ -1,9 +1,8 @@
 // Site-wide configuration. Edit values, not call sites.
 
 export const SITE = {
-  // PLACEHOLDER domain — replace with your real domain.
-  domain: 'amitkumar.dev',
-  url: 'https://amitkumar.dev',
+  domain: 'buildwithamit.in',
+  url: 'https://buildwithamit.in',
   title: 'Amit Kumar',
   description:
     'Personal site of Amit Kumar, Senior Engineering Manager.',
