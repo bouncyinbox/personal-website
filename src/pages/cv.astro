@@ -26,7 +26,6 @@ const roles: Role[] = [
       'Stabilized the team through a leadership transition — introduced structured planning, clarified ownership boundaries, and established cross-functional engagement models. Hired 3 engineers during this period.',
       'Reorganized the team to align with the Digital & AI vertical — mapped 6 apps and 4 services, transitioned 3 apps and 5 engineers to appropriate verticals.',
       'Identified a Sev-1 data quality issue on the iOS metering app undetected for 15 months — impacting 2 out of 20 core signals across nearly 100% of global clients. Drove root cause analysis and coordinated the fix across multiple teams.',
-      'Drove adoption of AI-assisted developer tooling across teams, personally shipped an enhancement in crawler using LLM integrated runtime loops (a self-healing crawler).',
     ],
   },
   {
@@ -35,14 +34,14 @@ const roles: Role[] = [
     dates: 'Apr 2022 – Jun 2025',
     location: 'Bangalore, India',
     bullets: [
-      'Led an 18-member primarily full-stack developers within storefront engineering, owning high-traffic customer-facing surfaces: PDP, Size&Fit, UGC, Growth (3D, Virtual TryOn, FWD, Hyperlocal, AI Looks), Recommendations, Search Experience.',
-      'Led MDL 2.0 mobile component library in collaboration with design - introduced theming support enabling multiple design identities on a shared component foundation, which powered app-in-app experiences for FWD, Hyperlocal Stores, and other sub-brands within the Myntra app.',
-      'Owned PDP product charter (~50% of Myntra traffic lands on PDP) - collaborated with 8-9 product leaders and multiple engineering teams to balance cross-sell, feature education, and core conversion on the highest-stakes surface in the funnel.',
-      'Led architecture and design of Tag service for social-proof nudges (city-first buyer, units sold, low-stock urgency) across PDP and key funnel touchpoints - lifted PDP-to-Cart by 4%.',
-      'Drove PDP migration to the Layout Engine framework — reduced TTFD by ~50% (5.1s → 2.5s), significantly improving scalability and release velocity.',
+      'Led an 18-member full-stack team within storefront engineering, owning high-traffic customer-facing surfaces and the underlying platforms powering them: PDP, Size&Fit, UGC, Growth (3D, Virtual TryOn, FWD, Hyperlocal, AI Looks), Recommendations, Search Experience.',
       'Owned the Style microservice powering PDP - 60+ internal clients, 8-10 upstream dependencies, business-critical path where downtime took orders to zero; drove reliability, scalability, and stakeholder coordination across consumers.',
       'Stabilized Style service (P0, business-critical) - introduced service-specific dashboards, granular alerts, VLT-based capacity planning, HPA for cost-aware scaling, and simplified architecture by removing an inconsistent cache pipeline; eliminated recurring P0 escalations during peak/deploys.',
+      'Led architecture and design of Tag service for social-proof nudges (city-first buyer, units sold, low-stock urgency) across PDP and key funnel touchpoints - lifted PDP-to-Cart by 4%.',
+      'Owned PDP product charter (~50% of Myntra traffic lands on PDP) - collaborated with 8-9 product leaders and multiple engineering teams to balance cross-sell, feature education, and core conversion on the highest-stakes surface in the funnel.',
       'Established robust performance and reliability practices (Firebase metrics, profiling, on-call rotations, RCA culture), resulting in ~70% reduction in production incidents.',
+      'Drove PDP migration to the Layout Engine framework — reduced TTFD by ~50% (5.1s → 2.5s), significantly improving scalability and release velocity.',
+      'Led MDL 2.0 mobile component library in collaboration with design - introduced theming support enabling multiple design identities on a shared component foundation, which powered app-in-app experiences for FWD, Hyperlocal Stores, and other sub-brands within the Myntra app.',
       'Partnered cross-functionally with Product, UX, TPM, and Platform teams to deliver complex, high-impact features on time.',
     ],
   },
@@ -54,9 +53,9 @@ const roles: Role[] = [
     bullets: [
       'Retained through Snapdeal 2.0 restructuring (80% workforce reduction) rebuilt buyer web/mobile engineering team from 2 to 14 and sustained product delivery through the transition.',
       'Built and led the BFF (Backend-for-Frontend) layer for dynamic, personalized layouts in collaboration with cross-functional engineering teams - unlocked rapid A/B testing and personalization for product and business teams without frontend release cycles.',
-      'Early-adopter implementation of AMP, Service Workers (web push), and One Tap Sign-in in collaboration with Google - AMP cut PLP load time by ~50% and lifted mobile web conversion by ~10%, web push drove ~15% re-engagement uplift, and One Tap reduced signin friction with ~20% higher signin conversion.',
       'Owned web & mobile platform observability and performance - Built in-house RUM and JS error/network logging libraries with dashboards and alerts; moved team from synthetic to real-user monitoring, established perf culture, drove significant page load improvements, cut customer escalations, and surfaced browser-specific conversion issues.',
       'Influenced architecture and engineering standards across web teams; mentored engineers into senior and tech lead roles, several now leading teams at top product companies.',
+      'Early-adopter implementation of AMP, Service Workers (web push), and One Tap Sign-in in collaboration with Google - AMP cut PLP load time by ~50% and lifted mobile web conversion by ~10%, web push drove ~15% re-engagement uplift, and One Tap reduced signin friction with ~20% higher signin conversion.',
       /*'Led the team to own complete buyer experience engineering across Discovery, Post-Order, and Payments; built hybrid apps and mobile web for post-order and payment flows - improved funnel conversion, reduced payment failures, and unified the buyer journey across surfaces.',*/
     ],
   },
@@ -80,16 +79,16 @@ interface SkillGroup {
 
 const skills: SkillGroup[] = [
   {
-    category: 'Web & Mobile',
-    items: 'JavaScript, TypeScript, React, React Native, Android, iOS, Hybrid Mobile Apps, PWA, Rendering Strategies, Core Web Vitals, Web Performance, Frontend Architecture, Frontend Build Tooling & Bundlers, Component Libraries',
-  },
-  {
     category: 'Backend',
     items: 'Golang, Node.js, Microservices, Distributed Systems, API Design Patterns (gRPC, REST API, API Gateway, BFF), CDN, Caching Strategy, High-Scale Platforms, Service Reliability Patterns, AWS, ElasticSearch, RDBMS (MySQL, PostgreSQL), NoSQL (MongoDB, Redis, Aerospike)',
   },
   {
     category: 'Observability & Reliability',
     items: 'Grafana, Prometheus, Firebase Performance, SLOs / SLAs, Incident Management, On-Call Practices, RCA & Post-Mortems, Alerting & Monitoring Pipelines, Circuit Breakers, Rate Limiting',
+  },
+  {
+    category: 'Web & Mobile',
+    items: 'JavaScript, TypeScript, React, React Native, Android, iOS, Hybrid Mobile Apps, PWA, Rendering Strategies, Core Web Vitals, Web Performance, Frontend Architecture, Frontend Build Tooling & Bundlers, Component Libraries',
   },
   {
     category: 'AI & Emerging',
@@ -128,7 +127,7 @@ const skills: SkillGroup[] = [
     <section>
       <h2>Summary</h2>
       <p>
-        Senior Engineering Manager with 13+ years building and scaling consumer internet platforms across e-commerce, travel, and marketplaces. Owned high-traffic web and mobile surfaces (storefront at Myntra, buyer experience at Snapdeal) with measurable impact on conversion, performance, and reliability. Hands-on expertise in frontend architecture, mobile web, hybrid apps, and BFF patterns, backed by full-stack and microservices ownership. Led teams through restructurings, leadership transitions, and multi-geo coordination, with recent work in AI-assisted developer tooling.
+        Senior Engineering Manager with 13+ years building and scaling high-traffic backend platforms and microservices across e-commerce, travel, and marketplaces. Owned business-critical services like Myntra's Style platform (60+ internal clients, 8-10 upstream dependencies, business-critical path) with focus on reliability, capacity planning, and infra cost optimization. Hands-on across distributed systems, microservices, BFF patterns, and observability, with full-stack range across web and mobile. Led teams through restructurings, leadership transitions, and multi-geo coordination, with recent work in AI-assisted developer tooling and LLM-integrated systems.
       </p>
     </section>
 
