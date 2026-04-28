@@ -1,7 +1,7 @@
 ---
 title: "Stop Approving Code You Didn't Read (Part 1): The 8 Lenses That Catch What Linters Can't"
 description: "A risk framework and 8 design lenses for effective code review, covering modularity, reusability, readability, extendability, and SOLID principles."
-pubDate: 2026-03-20
+pubDate: 2026-03-27
 draft: false
 ---
 

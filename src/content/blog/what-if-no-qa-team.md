@@ -1,7 +1,7 @@
 ---
 title: "What If We Didn't Need a QA Team Anymore?"
 description: "A deep research dive into eliminating manual QA with AI tools, automated pipelines, and production observability."
-pubDate: 2026-04-10
+pubDate: 2026-04-12
 draft: false
 ---
 

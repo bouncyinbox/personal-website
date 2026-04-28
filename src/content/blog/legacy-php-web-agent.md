@@ -1,7 +1,7 @@
 ---
 title: "Your Legacy PHP App Is a Black Box. Here's How to X-Ray It with a Web Agent."
 description: "How to use visual web agents like MolmoWeb to document and reverse-engineer legacy PHP applications for modernization."
-pubDate: 2026-04-20
+pubDate: 2026-04-09
 draft: false
 ---
 
