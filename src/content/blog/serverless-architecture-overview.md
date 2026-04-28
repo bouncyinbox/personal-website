@@ -1,7 +1,7 @@
 ---
 title: "Serverless Architecture: Overview and Key Concepts"
 description: "A comprehensive overview of serverless computing, its benefits, key AWS services, use cases, and when to avoid it."
-pubDate: 2025-07-30
+pubDate: 2025-07-31
 draft: false
 ---
 

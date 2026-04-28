@@ -1,7 +1,7 @@
 ---
 title: "We're Shipping Faster Than Ever. Our Systems Have Never Been More Fragile."
 description: "Guide for engineers on avoiding the 2026 AI quality collapse before it hits your team."
-pubDate: 2026-04-15
+pubDate: 2026-04-19
 draft: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "The Engineer's Playbook for Prompt Engineering: Cheat Codes, Hidden Tricks & Maximum Output from Claude"
 description: "How to stop fighting AI and start wielding it like a senior engineer -- mental models, cheat codes, and systemic habits for prompt engineering."
-pubDate: 2026-03-15
+pubDate: 2026-03-23
 draft: false
 ---
 
