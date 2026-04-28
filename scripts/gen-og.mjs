@@ -12,9 +12,9 @@ const outFile = resolve(outDir, 'og-default.png');
 
 if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
 
-// Edit these strings to taste; both are intentionally generic placeholders.
-const TITLE = '[PLACEHOLDER: Full Name]';
-const SUBTITLE = 'Senior Engineering Manager';
+// Edit to taste. Keep in sync with SITE in src/config.ts.
+const TITLE = 'Amit Kumar';
+const SUBTITLE = 'Senior Engineering Manager · Bangalore';
 
 const escape = (s) =>
   s.replace(/&/g, '&amp;')

@@ -12,6 +12,12 @@ interface Props {
   type?: 'website' | 'article';
   publishedTime?: Date;
   updatedTime?: Date;
+  keywords?: readonly string[] | string[];
+  articleAuthor?: string;
+  articleSection?: string;
+  articleTags?: readonly string[] | string[];
+  robots?: string;
+  jsonLd?: Record<string, unknown>[];
   bodyClass?: string;
 }
 
@@ -22,6 +28,12 @@ const {
   type,
   publishedTime,
   updatedTime,
+  keywords,
+  articleAuthor,
+  articleSection,
+  articleTags,
+  robots,
+  jsonLd,
   bodyClass,
 } = Astro.props;
 ---
@@ -50,6 +62,12 @@ const {
       type={type}
       publishedTime={publishedTime}
       updatedTime={updatedTime}
+      keywords={keywords}
+      articleAuthor={articleAuthor}
+      articleSection={articleSection}
+      articleTags={articleTags}
+      robots={robots}
+      jsonLd={jsonLd}
     />
     {PLAUSIBLE_ENABLED && (
       <script

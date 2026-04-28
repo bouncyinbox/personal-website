@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { SITE } from '../../config';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -22,6 +23,43 @@ const fmt = (d: Date) =>
 
 const words = post.body.trim().split(/\s+/).length;
 const minutes = Math.max(1, Math.round(words / 220));
+
+const postUrl = new URL(`/blog/${post.slug}`, SITE.url).href;
+
+const blogPostingLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  url: postUrl,
+  mainEntityOfPage: postUrl,
+  datePublished: post.data.pubDate.toISOString(),
+  ...(post.data.updatedDate && { dateModified: post.data.updatedDate.toISOString() }),
+  author: {
+    '@type': 'Person',
+    name: SITE.author,
+    url: SITE.url,
+  },
+  publisher: {
+    '@type': 'Person',
+    name: SITE.author,
+    url: SITE.url,
+  },
+  image: new URL(SITE.defaultOgImage, SITE.url).href,
+  inLanguage: 'en',
+  wordCount: words,
+  articleSection: 'Engineering',
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url + '/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: new URL('/blog', SITE.url).href },
+    { '@type': 'ListItem', position: 3, name: post.data.title, item: postUrl },
+  ],
+};
 ---
 
 <BaseLayout
@@ -30,13 +68,25 @@ const minutes = Math.max(1, Math.round(words / 220));
   type="article"
   publishedTime={post.data.pubDate}
   updatedTime={post.data.updatedDate}
+  articleSection="Engineering"
+  jsonLd={[blogPostingLd, breadcrumbLd]}
 >
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li aria-current="page">{post.data.title}</li>
+    </ol>
+  </nav>
+
   <article>
     <h1>{post.data.title}</h1>
     <p class="post-meta">
-      {fmt(post.data.pubDate)} · {minutes} min read
+      <span>By <a rel="author" href="/">{SITE.author}</a></span> ·
+      <time datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time> ·
+      {minutes} min read
       {post.data.updatedDate && (
-        <> · Updated {fmt(post.data.updatedDate)}</>
+        <> · Updated <time datetime={post.data.updatedDate.toISOString()}>{fmt(post.data.updatedDate)}</time></>
       )}
     </p>
 

@@ -472,6 +472,11 @@ th, td {
 .cv .skill-group:last-child { margin-bottom: 0; }
 .cv .skill-group strong { font-weight: 600; }
 
+.breadcrumb { font-size: 0.875rem; color: var(--muted, #666); margin: 0 0 1rem; }
+.breadcrumb ol { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; }
+.breadcrumb li + li::before { content: "›"; margin-right: 0.5rem; opacity: 0.6; }
+.breadcrumb [aria-current="page"] { color: var(--fg); }
+
 /* Print */
 @media print {
   :root {
