@@ -12,16 +12,24 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
   title={undefined}
   description={SITE.description}
 >
+  <Fragment slot="head">
+    <link rel="preload" as="image" href="/profile.avif" type="image/avif" fetchpriority="high" />
+  </Fragment>
   <div class="hero">
-    <img
-      src={SITE.profileImage}
-      alt={`${SITE.author}, ${SITE.jobTitle} based in ${SITE.city}, ${SITE.country}`}
-      class="profile-photo"
-      width="160"
-      height="160"
-      loading="eager"
-      decoding="async"
-    />
+    <picture>
+      <source type="image/avif" srcset="/profile.avif" />
+      <source type="image/webp" srcset="/profile.webp" />
+      <img
+        src={SITE.profileImage}
+        alt={`${SITE.author}, ${SITE.jobTitle} based in ${SITE.city}, ${SITE.country}`}
+        class="profile-photo"
+        width="320"
+        height="320"
+        loading="eager"
+        decoding="sync"
+        fetchpriority="high"
+      />
+    </picture>
     <div>
       <h1>Amit Kumar</h1>
       <p class="lede">

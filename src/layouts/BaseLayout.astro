@@ -12,7 +12,6 @@ interface Props {
   type?: 'website' | 'article';
   publishedTime?: Date;
   updatedTime?: Date;
-  keywords?: readonly string[] | string[];
   articleAuthor?: string;
   articleSection?: string;
   articleTags?: readonly string[] | string[];
@@ -28,7 +27,6 @@ const {
   type,
   publishedTime,
   updatedTime,
-  keywords,
   articleAuthor,
   articleSection,
   articleTags,
@@ -45,16 +43,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <script is:inline>
-      (function () {
-        try {
-          var stored = localStorage.getItem('theme');
-          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var theme = stored || (prefersDark ? 'dark' : 'light');
-          document.documentElement.setAttribute('data-theme', theme);
-        } catch (e) {}
-      })();
-    </script>
+    <script is:inline>(function(){try{var s=localStorage.getItem('theme'),d=matchMedia('(prefers-color-scheme:dark)').matches;document.documentElement.setAttribute('data-theme',s||(d?'dark':'light'))}catch(e){}})();</script>
     <SEO
       title={title}
       description={description}
@@ -62,7 +51,6 @@ const {
       type={type}
       publishedTime={publishedTime}
       updatedTime={updatedTime}
-      keywords={keywords}
       articleAuthor={articleAuthor}
       articleSection={articleSection}
       articleTags={articleTags}
@@ -77,6 +65,7 @@ const {
         src="https://plausible.io/js/script.js"
       />
     )}
+    <slot name="head" />
   </head>
   <body class={bodyClass}>
     <a class="skip-link" href="#main">Skip to content</a>

@@ -25,15 +25,4 @@ const year = new Date().getFullYear();
   </div>
 </footer>
 
-<script is:inline>
-  (function () {
-    var el = document.getElementById('email-link');
-    if (!el) return;
-    var user = el.getAttribute('data-user') || '';
-    var domain = el.getAttribute('data-domain') || '';
-    el.addEventListener('click', function (e) {
-      e.preventDefault();
-      window.location.href = 'mailto:' + user + '@' + domain;
-    });
-  })();
-</script>
+<script is:inline>(function(){var e=document.getElementById('email-link');if(!e)return;e.addEventListener('click',function(ev){ev.preventDefault();location.href='mailto:'+(e.getAttribute('data-user')||'')+'@'+(e.getAttribute('data-domain')||'')})})();</script>

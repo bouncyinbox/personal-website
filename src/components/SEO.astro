@@ -8,7 +8,6 @@ interface Props {
   type?: 'website' | 'article';
   publishedTime?: Date;
   updatedTime?: Date;
-  keywords?: readonly string[] | string[];
   articleAuthor?: string;
   articleSection?: string;
   articleTags?: readonly string[] | string[];
@@ -23,7 +22,6 @@ const {
   type = 'website',
   publishedTime,
   updatedTime,
-  keywords,
   articleAuthor = SITE.author,
   articleSection,
   articleTags,
@@ -36,7 +34,6 @@ const siteUrl = Astro.site ?? new URL(SITE.url);
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const ogImageURL = new URL(ogImage, siteUrl);
 const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
-const keywordList = (keywords && keywords.length > 0 ? keywords : SITE.keywords).join(', ');
 
 // JSON-LD: site-wide identity (Person + WebSite).
 const personLd = {
@@ -75,7 +72,6 @@ const allLd: Record<string, unknown>[] = isHome
 
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
-<meta name="keywords" content={keywordList} />
 <meta name="author" content={SITE.author} />
 <meta name="robots" content={robots} />
 <link rel="canonical" href={canonicalURL.href} />
