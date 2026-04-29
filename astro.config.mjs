@@ -1,5 +1,9 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { browserslistToTargets } from 'lightningcss';
+import browserslist from 'browserslist';
+
+const lightningTargets = browserslistToTargets(browserslist('>= 0.5%, last 2 versions, Firefox ESR, not dead'));
 
 // Keep this in sync with SITE.url in src/config.ts.
 export default defineConfig({
@@ -7,6 +11,13 @@ export default defineConfig({
   trailingSlash: 'never',
   build: {
     format: 'directory',
+  },
+  vite: {
+    css: {
+      transformer: 'lightningcss',
+      lightningcss: { targets: lightningTargets, minify: true },
+    },
+    build: { cssMinify: 'lightningcss' },
   },
   integrations: [
     sitemap({
