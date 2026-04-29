@@ -329,7 +329,7 @@ th, td {
   margin: -0.25rem 0 1.25rem;
 }
 
-/* Lists used on /experience, /projects, /reading */
+/* Lists used on /projects, /reading */
 .entries {
   list-style: none;
   padding: 0;
@@ -353,33 +353,6 @@ th, td {
 .entry h3 { margin: 0; font-family: var(--font-sans); font-size: 1.05rem; }
 .entry .dates { color: var(--muted); font-size: 0.95rem; }
 .entry .scope { color: var(--muted); font-size: 0.95rem; margin: 0 0 0.5rem; }
-
-.entry-title {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  min-width: 0;
-}
-
-.entry-logo {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  flex-shrink: 0;
-  border-radius: 4px;
-}
-
-:root[data-theme="dark"] .entry-logo {
-  background: #ffffff;
-  padding: 4px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .entry-logo {
-    background: #ffffff;
-    padding: 4px;
-  }
-}
 
 .post-list {
   list-style: none;

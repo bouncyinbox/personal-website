@@ -28,10 +28,6 @@ Below is the same set, grouped by page, so you can do a single pass.
 - Lede line — current title and company.
 - Two body paragraphs (bio + operating principles).
 
-## Experience — `src/pages/experience.astro`
-
-For each of the four role entries: `company`, `title`, `dates`, `scope`, and 3–5 bullets.
-
 ## Projects — `src/pages/projects.astro`
 
 For each project entry: `title`, `summary`, `role`, `outcome`, optional `link`.
