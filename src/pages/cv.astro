@@ -22,11 +22,11 @@ const roles: Role[] = [
     dates: 'Jun 2025 – Feb 2026',
     location: 'Bangalore, India',
     bullets: [
-      'Took over a 32-member cross-functional engineering team across South Korea, US, and India (4 cities) — previously led by a Director of Engineering for 7+ years.',
-      'Stabilized the team through a leadership transition — introduced structured planning, clarified ownership boundaries, and established cross-functional engagement models. Hired 3 engineers during this period.',
-      'Reorganized the team to align with the Digital & AI vertical — mapped 6 apps and 4 services, transitioned 3 apps and 5 engineers to appropriate verticals.',
-      'Identified a Sev-1 data quality issue on the iOS metering app undetected for 15 months — impacting 2 out of 20 core signals across nearly 100% of global clients. Drove root cause analysis and coordinated the fix across multiple teams.',
-      'Drove adoption of AI-assisted developer tooling across teams, personally shipped an enhancement in crawler using LLM integrated runtime loops (a self-healing crawler).',
+      'Took over a 32-member cross-functional engineering team (web, backend, android/iOS) across South Korea, US, and India (4 cities) - previously led by a Director for 7+ years, owned Digital audience measurement portfolio. Stabilized through leadership transition',
+      'Owned consumer digital meters live across 9 countries - capturing browsing, streaming, and e-commerce signals via Android Accessibility API, VPN-based traffic capture, with on-device data SDKs; WebView-based onboarding/rewards flows backed by user-management and incentives services.',
+      'Operated as a manager-of-managers across the multi-geo org - had [2 EMs / 4 tech leads] reporting in, ran skip-level 1:1s with their teams, and coached managers on delivery, stakeholder handling, and people development during the leadership transition.',
+      'Identified a Sev-1 data quality issue undetected for 15 months, impacting 2 core signals across nearly 100% of global clients. Drove root cause analysis and coordinated the fix across multiple teams.',
+      'Drove adoption of AI-assisted developer tooling across teams, personally helped shipped an enhancement in crawler using LLM integrated runtime loops (a self-healing crawler).',
     ],
   },
   {
@@ -36,14 +36,13 @@ const roles: Role[] = [
     location: 'Bangalore, India',
     bullets: [
       'Led an 18-member primarily full-stack developers within storefront engineering, owning high-traffic customer-facing surfaces: PDP, Size&Fit, UGC, Growth (3D, Virtual TryOn, FWD, Hyperlocal, AI Looks), Recommendations, Search Experience.',
-      'Led MDL 2.0 mobile component library in collaboration with design - introduced theming support enabling multiple design identities on a shared component foundation, which powered app-in-app experiences for FWD, Hyperlocal Stores, and other sub-brands within the Myntra app.',
       'Owned PDP product charter (~50% of Myntra traffic lands on PDP) - collaborated with 8-9 product leaders and multiple engineering teams to balance cross-sell, feature education, and core conversion on the highest-stakes surface in the funnel.',
       'Led architecture and design of Tag service for social-proof nudges (city-first buyer, units sold, low-stock urgency) across PDP and key funnel touchpoints - lifted PDP-to-Cart by 4%.',
       'Drove PDP migration to the Layout Engine framework — reduced TTFD by ~50% (5.1s → 2.5s), significantly improving scalability and release velocity.',
+      'Led development of a new component library MDL 2.0 in collaboration with design - introduced theming support enabling multiple design identities on a shared component foundation, which powered app-in-app experiences for Myntra, FWD, Hyperlocal & Luxe stores within the Myntra app.',
       'Owned the Style microservice powering PDP - 60+ internal clients, 8-10 upstream dependencies, business-critical path where downtime took orders to zero; drove reliability, scalability, and stakeholder coordination across consumers.',
       'Stabilized Style service (P0, business-critical) - introduced service-specific dashboards, granular alerts, VLT-based capacity planning, HPA for cost-aware scaling, and simplified architecture by removing an inconsistent cache pipeline; eliminated recurring P0 escalations during peak/deploys.',
       'Established robust performance and reliability practices (Firebase metrics, profiling, on-call rotations, RCA culture), resulting in ~70% reduction in production incidents.',
-      'Partnered cross-functionally with Product, UX, TPM, and Platform teams to deliver complex, high-impact features on time.',
     ],
   },
   {
@@ -81,23 +80,23 @@ interface SkillGroup {
 const skills: SkillGroup[] = [
   {
     category: 'Web & Mobile',
-    items: 'JavaScript, TypeScript, React, React Native, Android, iOS, Hybrid Mobile Apps, PWA, Rendering Strategies, Core Web Vitals, Web Performance, Frontend Architecture, Frontend Build Tooling & Bundlers, Component Libraries',
+    items: 'JavaScript, TypeScript, React, React Native, PWA, Hybrid Mobile Apps, WebView, Rendering Strategies, Web Performance, Frontend Architecture, Android/iOS, Component Libraries',
   },
   {
     category: 'Backend',
-    items: 'Golang, Node.js, Microservices, Distributed Systems, API Design Patterns (gRPC, REST API, API Gateway, BFF), CDN, Caching Strategy, High-Scale Platforms, Service Reliability Patterns, AWS, ElasticSearch, RDBMS (MySQL, PostgreSQL), NoSQL (MongoDB, Redis, Aerospike)',
+    items: 'Golang, Node.js, Microservices, BFF & aggregator patterns, API Gateway, REST/gRPC/ GraphQL, CDN, Caching Strategy, High-Scale Platforms, Service Reliability Patterns, AWS, NoSQL (MongoDB, Redis, Aerospike)',
   },
   {
     category: 'Observability & Reliability',
-    items: 'Grafana, Prometheus, Firebase Performance, SLOs / SLAs, Incident Management, On-Call Practices, RCA & Post-Mortems, Alerting & Monitoring Pipelines, Circuit Breakers, Rate Limiting',
+    items: 'Grafana, Prometheus, Firebase, Sentry, SLOs / SLAs, Incident Management, On-Call Practices, RCA & Post-Mortems, Alerting & Monitoring, Circuit Breakers, Rate Limiting',
   },
   {
     category: 'AI & Emerging',
-    items: 'Generative AI, AI-Assisted Developer Tooling',
+    items: 'Gen AI, AI-Assisted Developer Tooling',
   },
   {
     category: 'Domain Expertise',
-    items: 'E-commerce, Travel, Marketplace Platforms, Data, Analytics, and Market Research, Consumer Internet Products, B2C',
+    items: 'E-commerce, Travel, Marketplace, Analytics, Market Research, Consumer Internet Products, B2C',
   },
   {
     category: 'Engineering Leadership',
