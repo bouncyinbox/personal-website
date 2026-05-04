@@ -1,3 +1,25 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Theme tokens — auto light/dark via prefers-color-scheme. */
 :root {
   --line-height: 1.6;
@@ -418,21 +440,17 @@ th, td {
   margin: 1.2rem 0 0.6rem;
 }
 
-.cv .role-head {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.25rem 1rem;
-}
-
-.cv .role-head h3 {
+.cv .role h3 {
   font-family: var(--font-sans);
   font-size: 1rem;
   margin: 0.6rem 0 0.1rem;
 }
 
-.cv .role-head .meta { color: var(--muted); font-size: 0.95rem; }
+.cv .role .meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0 0 0.25rem;
+}
 .cv .affiliation { color: var(--muted); font-size: 0.95rem; margin: 0.1rem 0 0.5rem; }
 .cv ul { margin: 0.3rem 0 0.5rem; }
 
@@ -456,13 +474,23 @@ th, td {
     --code-bg: #fff;
   }
 
-  @page { margin: 14mm; }
+  @page { margin: 12mm 14mm; }
 
   body {
     background: #fff;
     color: #000;
-    font-size: 10.5pt;
-    line-height: 1.4;
+    font-size: 10pt;
+    line-height: 1.35;
+    hyphens: none;
+    -webkit-hyphens: none;
+    overflow-wrap: normal;
+    word-break: keep-all;
+  }
+
+  /* Force Inter in print so Skia embeds CID TrueType (extracts cleanly in all ATS),
+     instead of macOS system font which renders as Type 3. */
+  body, .cv, .cv * {
+    font-family: 'Inter', Helvetica, Arial, sans-serif !important;
   }
 
   .site-header,
@@ -478,13 +506,17 @@ th, td {
   a[href^="http"]::after { content: ""; }
 
   h1 { font-size: 16pt; margin: 0 0 0.1em; }
+  .cv .contact-line { font-size: 10pt; margin: 0 0 0.2em; line-height: 1.35; }
   .cv section h2 { font-size: 9pt; margin: 0.5em 0 0.2em; }
-  .cv .role-head h3 { font-size: 10pt; margin: 0.3em 0 0.05em; }
-  .cv ul { margin: 0.1em 0 0.3em; padding-left: 1.1em; }
+  .cv .role h3 { font-size: 10pt; margin: 0.35em 0 0.05em; }
+  .cv .role .meta { font-size: 9.5pt; margin: 0 0 0.15em; }
+  .cv .affiliation { font-size: 9.5pt; margin: 0.05em 0 0.3em; }
+  .cv ul { margin: 0.1em 0 0.25em; padding-left: 1em; }
+  .cv li { font-size: 10pt; line-height: 1.32; }
   .cv li + li { margin-top: 0.02em; }
-  .cv .contact-line { margin-bottom: 0.2em; }
   .cv section { margin-top: 0.5rem; }
-  .cv .skill-group { margin: 0 0 0.2em; line-height: 1.35; }
-  p, li { orphans: 3; widows: 3; }
+  .cv section p { font-size: 10pt; margin: 0.2em 0; }
+  .cv .skill-group { font-size: 10pt; margin: 0 0 0.2em; line-height: 1.35; }
+  p, li { orphans: 2; widows: 2; }
   .cv .role { break-inside: avoid; }
 }
