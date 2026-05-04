@@ -18,9 +18,9 @@ const readingTime = (body: string) => {
 const blogLd = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
-  name: `${SITE.title} — Blog`,
+  name: `${SITE.title} — Writing`,
   description:
-    'Essays on engineering leadership, distributed systems, code review, and shipping software with AI-assisted tooling.',
+    'Notes on engineering leadership, distributed systems, code review, and AI-assisted development — drawn from years of building teams and platforms at scale.',
   url: new URL('/blog', SITE.url).href,
   author: { '@type': 'Person', name: SITE.author, url: SITE.url },
   inLanguage: 'en',
@@ -28,12 +28,12 @@ const blogLd = {
 ---
 
 <BaseLayout
-  title="Blog"
-  description="Essays by Amit Kumar on engineering leadership, distributed systems, code review, and shipping software with AI-assisted tooling."
+  title="Writing"
+  description="Notes by Amit Kumar on engineering leadership, distributed systems, code review, and AI-assisted development — drawn from years of building teams and platforms at scale."
   jsonLd={[blogLd]}
 >
-  <h1>Blog</h1>
-  <p class="lede">Essays on engineering leadership, distributed systems, code review, and AI-assisted development — written from 13+ years of building teams and platforms at scale.</p>
+  <h1>Writing</h1>
+  <p class="lede">Notes on engineering leadership, distributed systems, code review, and AI-assisted development — drawn from years of building teams and platforms at scale.</p>
 
   {posts.length === 0 ? (
     <p class="muted">No posts yet.</p>
